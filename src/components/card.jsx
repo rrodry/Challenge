@@ -1,7 +1,17 @@
 import "./card.css";
+import { connSubmitApplication } from "../middlewares/conn";
+import { useState } from "react";
 
-export const Cards = ({ title }) => {
-  console.log(title);
+export const Cards = ({ jobId, title, candidateData }) => {
+  const [repoUrl, setRepoUrl] = useState("");
+
+  const handleSubmit = () => {
+    connSubmitApplication(jobId, candidateData, repoUrl).then((response) => {
+      console.log("Application submitted successfully:", response.json());
+    });
+
+    setRepoUrl("");
+  };
 
   return (
     <div className="dvCard">
@@ -9,8 +19,13 @@ export const Cards = ({ title }) => {
         <h3>{title}</h3>
       </div>
       <div className="dvCardContent">
-        <input type="text" placeholder="Github" />
-        <button>Enviar</button>
+        <input
+          type="text"
+          placeholder="Github"
+          value={repoUrl}
+          onChange={(e) => setRepoUrl(e.target.value)}
+        />
+        <button onClick={handleSubmit}>Enviar</button>
       </div>
     </div>
   );

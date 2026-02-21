@@ -11,6 +11,7 @@ function App() {
   useEffect(() => {
     connDataCandidate().then((data) => {
       setCandidateData(data);
+      console.log(data);
     });
     connDataJobList().then((data) => {
       setJobListData(data);
@@ -19,11 +20,18 @@ function App() {
   return (
     <>
       <div className="dvTitleMain">
-        <h1>Challenge</h1>
+        <h1>Challenge - Job List</h1>
       </div>
       <div className="dvContentMain">
         {jobListData &&
-          jobListData.map((job) => <Cards title={job.title}></Cards>)}
+          jobListData.map((job) => (
+            <Cards
+              key={job.id}
+              jobId={job.id}
+              title={job.title}
+              candidateData={candidateData}
+            ></Cards>
+          ))}
       </div>
     </>
   );
