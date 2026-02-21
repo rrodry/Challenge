@@ -35,11 +35,15 @@ export const connSubmitApplication = async (jobId, candidateData, repoUrl) => {
       candidateId: candidateData.candidateId,
       repoUrl: repoUrl,
     };
+    console.log("DATA:", payload);
+
     const response = await axios.post(POST_APPLICATION, payload, {
       headers: {
         "Content-Type": "application/json",
       },
     });
+    console.log("DATA:", response.data);
+
     return response.data;
   } catch (error) {
     console.error("Error submitting application:", error);

@@ -23,11 +23,13 @@ export const Cards = ({ jobId, title, candidateData }) => {
         <h3>{title}</h3>
       </div>
       <div className="dvCardContent">
+        <small className="SpObligatory">*Obligatorio</small>
         <input
           type="text"
           placeholder="Github"
           value={repoUrl}
           onChange={(e) => setRepoUrl(e.target.value)}
+          className="inputGit"
         />
         <button
           type="button"
