@@ -1,14 +1,16 @@
-export const Cards = () => {
+import "./card.css";
+
+export const Cards = ({ title }) => {
+  console.log(title);
+
   return (
     <div className="dvCard">
       <div className="dvCardTitle">
-        <h2>Title</h2>
+        <h3>{title}</h3>
       </div>
       <div className="dvCardContent">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-          voluptate.
-        </p>
+        <input type="text" placeholder="Github" />
+        <button>Enviar</button>
       </div>
     </div>
   );

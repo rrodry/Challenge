@@ -22,7 +22,8 @@ function App() {
         <h1>Challenge</h1>
       </div>
       <div className="dvContentMain">
-        <Cards candidateData={candidateData} jobListData={jobListData}></Cards>
+        {jobListData &&
+          jobListData.map((job) => <Cards title={job.title}></Cards>)}
       </div>
     </>
   );
