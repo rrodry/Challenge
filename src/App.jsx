@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     connDataCandidate().then((data) => {
       setCandidateData(data);
-      console.log(data);
     });
     connDataJobList().then((data) => {
       setJobListData(data);

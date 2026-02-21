@@ -25,15 +25,6 @@ export const connDataJobList = async () => {
   }
 };
 export const connSubmitApplication = async (jobId, candidateData, repoUrl) => {
-  //POST {BASE_URL}/api/candidate/apply-to-job
-  //Content-Type: application/json
-  /*{
-  "uuid": "tu uuid (del Step 2)",
-  "jobId": "id de la posición (del Step 3)",
-  "candidateId": "tu candidateId (del Step 2)",
-  "repoUrl": "https://github.com/tu-usuario/tu-repo"
-  }*/
-
   try {
     const POST_APPLICATION = `${BASE_URL}/api/candidate/apply-to-job`;
 

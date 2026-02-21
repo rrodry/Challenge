@@ -6,10 +6,14 @@ export const Cards = ({ jobId, title, candidateData }) => {
   const [repoUrl, setRepoUrl] = useState("");
 
   const handleSubmit = () => {
-    connSubmitApplication(jobId, candidateData, repoUrl).then((response) => {
-      console.log("Application submitted successfully:", response.json());
-    });
-
+    connSubmitApplication(jobId, candidateData, repoUrl)
+      .then(() => {
+        alert("Aplicación enviada con éxito");
+      })
+      .catch((error) => {
+        alert("Error al enviar la aplicación");
+        console.error("Error submitting application:", error);
+      });
     setRepoUrl("");
   };
 
@@ -25,7 +29,14 @@ export const Cards = ({ jobId, title, candidateData }) => {
           value={repoUrl}
           onChange={(e) => setRepoUrl(e.target.value)}
         />
-        <button onClick={handleSubmit}>Enviar</button>
+        <button
+          type="button"
+          disabled={repoUrl === ""}
+          className={repoUrl != "" ? "SubbmitButton" : "SubbmitButtonDisabled"}
+          onClick={handleSubmit}
+        >
+          Enviar
+        </button>
       </div>
     </div>
   );

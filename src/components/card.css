@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
 }
-.dvCardContent button{
+.SubbmitButton, .SubbmitButtonDisabled{
     background: #4b8f51;
     margin-top: 20px;
     color: white;
@@ -22,9 +22,13 @@
     cursor: pointer;
     transition: background 0.7s ease, transform 0.4s ease;
 }
-.dvCardContent button:hover{
+.SubbmitButton:hover{
     background: linear-gradient(#33ca3f, #2a904a);
     transform: scale(1.05);
+}
+.SubbmitButtonDisabled{
+    background: #a9a9a9;
+    cursor: not-allowed;
 }
 .dvCardTitle{
     text-align: center;
